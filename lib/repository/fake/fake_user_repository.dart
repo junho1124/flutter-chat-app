@@ -7,6 +7,10 @@ import 'package:chat_app/repository/user_repository.dart';
 class FakeUserRepository extends UserRepository {
   StreamController<ChatUser?> _authStateStreamController = StreamController();
 
+
+  StreamController<ChatUser?> get authStateStreamController =>
+      _authStateStreamController;
+
   @override
   void login() async {
     await Future.delayed(Duration(seconds: 1));

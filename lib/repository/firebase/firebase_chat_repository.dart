@@ -4,8 +4,10 @@ import 'package:chat_app/repository/repository.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class FirebaseChatRepository extends Repository<Chat> {
-  final DatabaseReference _messagesRef =
-      FirebaseDatabase.instance.reference().child('messages2');
+  final DatabaseReference _messagesRef;
+
+  FirebaseChatRepository({FirebaseDatabase? instance})
+      : _messagesRef = (instance ?? FirebaseDatabase.instance).reference().child('messages2');
 
   @override
   Future add(Chat item) async {

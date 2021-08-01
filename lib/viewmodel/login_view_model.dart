@@ -12,6 +12,7 @@ class LoginViewModel extends ChangeNotifier {
     repository.authStateChanges().listen((Result<ChatUser> result) {
       if (result is Success<ChatUser>) {
         user = result.data;
+        print(user);
       } else if (result is Error<ChatUser>) {
         user = null;
         print(result.e);
